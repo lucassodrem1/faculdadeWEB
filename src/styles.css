@@ -1,0 +1,25 @@
+body {
+	font-family: arial;
+}
+
+.white-hr {
+	background: #ffffff;
+}
+
+.custom-hr {
+	border: 1px solid white;
+}
+
+.card {
+	color: black;
+}
+
+.header {
+	position: fixed;
+	width: 100%;
+	z-index:9;
+}
+
+.header{
+	top:0px;
+}

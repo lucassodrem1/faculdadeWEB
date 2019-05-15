@@ -1,0 +1,12 @@
+.section {
+	color: white;
+}
+
+#arrow {
+	height: 200px;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0px;
+}
