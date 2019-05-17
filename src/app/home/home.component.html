@@ -35,7 +35,7 @@
                 <div class='col-md-4 mt-2' *ngFor='let developer of developers'>
                     <div class='card text-center'>
                         <div class='card-header'>
-                            {{developer.name}}
+                            {{developer.userName}}
                         </div>
                         <div class='card-body'>
                             <p class='card-text'>
@@ -66,19 +66,19 @@
                 </div>
             </div>
             <div class='row justify-content-md-center'>
-                <div class='col-md-4 mt-2' *ngFor='let developer of developers'>
+                <div class='col-md-4 mt-2' *ngFor='let support of supports'>
                     <div class='card text-center'>
                         <div class='card-header'>
-                            {{developer.name}}
+                            {{support.userName}}
                         </div>
                         <div class='card-body'>
                             <p class='card-text'>
-                                {{developer.desc}}
+                                {{support.desc}}
                             </p>
                             <button class='btn btn-primary'> Conferir! </button>
                         </div>
                         <div class='card-footer text-muted'>
-                            Recomendações: {{developer.votes}}
+                            Recomendações: {{support.votes}}
                         </div>
                     </div>
                 </div>
