@@ -1,1 +1,6 @@
-@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+.login-body {
+	background: #0798ec;
+	min-width: 100%;
+	min-height: 100%;
+	color: white;
+}

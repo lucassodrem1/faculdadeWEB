@@ -10,8 +10,6 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,5 +1,6 @@
 body {
 	font-family: arial;
+	background:  inherit;
 }
 
 .white-hr {
@@ -22,4 +23,13 @@ body {
 
 .header{
 	top:0px;
+}
+
+.mt-10 {
+	margin-top: 100px;
+}
+
+html, body, app-root {
+	height: 100%;
+	margin: 0;
 }
