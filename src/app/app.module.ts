@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
-import { RegistroComponent } from './registro/registro.component';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { RegistroComponent } from './registro/registro.component';
     HomeComponent,
     NavbarComponent,
     LoginComponent,
-    RegistroComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
