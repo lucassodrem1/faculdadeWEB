@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as fullpage from '../../assets/fullpage/fullpage.js';
 import { UsersService } from '../users.service';
-import { WorkersService } from '../workers.service';
 
 @Component({
   selector: 'app-home',
@@ -9,20 +8,21 @@ import { WorkersService } from '../workers.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public workers = [];
+  public users: Object;
   public developers = [];
   public supports = [];
+  public repairmen = [];
+  public editors = [];
 
   constructor(
-    private usersSerivce: UsersService,
-    private workersService: WorkersService  
+    private usersService: UsersService
   ) {}
 
   ngOnInit() {
  	  new fullpage('#fullpage', {
    		lockAnchors: false,
-      anchors: ['home', 'desenvolvimento', 'suporte'],
-      sectionsColor : ['#1bbc9b', '#0798ec', '#ff5f45'],
+      anchors: ['home', 'desenvolvimento', 'suporte', 'conserto', 'edicao'],
+      sectionsColor : ['#1bbc9b', '#0798ec', '#ff5f45', '#7e8f7c', '#fec401'],
       menu: '#menu',
       lazyLoad: true,
       navigation: true,
@@ -32,36 +32,13 @@ export class HomeComponent implements OnInit {
       scrollOverflow: true
     });
 
-    this.getWorkers();
+    this.developers = this.getServicesByName('Desenvolvedor');
+    this.supports = this.getServicesByName('Suporte');
+    this.repairmen = this.getServicesByName('Conserto');
+    this.editors = this.getServicesByName('Edicao');
   }
 
-  //Metodo para pegar todos os trabalhadores.
-  private getWorkers () {
-    this.workersService.getWorkers()
-    .subscribe(workers => {
-      this.workers = workers;
-
-      // Pegando o nome do usuário da tabela users.
-      this.workers.forEach(worker => {
-        this.usersSerivce.getUserById(worker.userId)
-        .subscribe(user => {
-          worker.userName = user.name;
-        })
-      });
-
-      //Separando por categoria.
-      this.workers.forEach(worker => {
-        if (worker.work == 'Desenvolvedor') {
-          this.developers.push(worker);
-        }
-      });
-
-      this.workers.forEach(worker => {
-        if (worker.work == 'Suporte') {
-          this.supports.push(worker);
-        }
-      });
-      console.log(this.workers);
-    });
+  private getServicesByName(serviceName) {
+    return this.usersService.getServicesByName(serviceName);
   }
 }

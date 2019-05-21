@@ -32,10 +32,10 @@
                 </div>
             </div>
             <div class='row justify-content-md-center'>
-                <div class='col-md-4 mt-2' *ngFor='let developer of developers'>
+                <div class='col-md-4 mt-2' *ngFor='let developer of developers | slice:0:6'>
                     <div class='card text-center'>
                         <div class='card-header'>
-                            {{developer.userName}}
+                            {{developer.username}}
                         </div>
                         <div class='card-body'>
                             <p class='card-text'>
@@ -56,6 +56,7 @@
             </div>
         </div>
     </div>  
+
     <!-- Suporte -->
     <div class="section">
         <div class='container'>
@@ -66,10 +67,10 @@
                 </div>
             </div>
             <div class='row justify-content-md-center'>
-                <div class='col-md-4 mt-2' *ngFor='let support of supports'>
+                <div class='col-md-4 mt-2' *ngFor='let support of supports | slice:0:6'>
                     <div class='card text-center'>
                         <div class='card-header'>
-                            {{support.userName}}
+                            {{support.username}}
                         </div>
                         <div class='card-body'>
                             <p class='card-text'>
@@ -89,6 +90,76 @@
                 </div>
             </div>
         </div>
-    </div>  
+    </div> 
+
+    <!-- Conserto -->
+    <div class="section">
+        <div class='container'>
+            <div class='row justify-content-md-center mt-5'>
+                <div class='col-md-auto'>
+                    <h1> Conserto </h1>
+                    <hr class='custom-hr'>
+                </div>
+            </div>
+            <div class='row justify-content-md-center'>
+                <div class='col-md-4 mt-2' *ngFor='let repairman of repairmen | slice:0:6'>
+                    <div class='card text-center'>
+                        <div class='card-header'>
+                            {{repairman.username}}
+                        </div>
+                        <div class='card-body'>
+                            <p class='card-text'>
+                                {{repairman.desc}}
+                            </p>
+                            <button class='btn btn-primary'> Conferir! </button>
+                        </div>
+                        <div class='card-footer text-muted'>
+                            Recomendações: {{repairman.votes}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='row justify-content-md-center mt-5'>
+                <div class='col-md-auto'>
+                    <button class='btn btn-light btn-lg' style='color: #7e8f7c'> Mais opções! </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edição -->
+    <div class="section">
+        <div class='container'>
+            <div class='row justify-content-md-center mt-5'>
+                <div class='col-md-auto'>
+                    <h1> Edição </h1>
+                    <hr class='custom-hr'>
+                </div>
+            </div>
+            <div class='row justify-content-md-center'>
+                <div class='col-md-4 mt-2' *ngFor='let editor of editors'>
+                    <div class='card text-center'>
+                        <div class='card-header'>
+                            {{editor.name}}
+                        </div>
+                        <div class='card-body'>
+                            <p class='card-text'>
+                                {{editor.desc}}
+                            </p>
+                            <button class='btn btn-primary'> Conferir! </button>
+                        </div>
+                        <div class='card-footer text-muted'>
+                            Recomendações: {{editor.votes}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='row justify-content-md-center mt-5'>
+                <div class='col-md-auto'>
+                    <button class='btn btn-light btn-lg' style='color: #fec401'> Mais opções! </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </html>
