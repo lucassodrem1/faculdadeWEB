@@ -5,10 +5,10 @@ const path = require('path');
 const app = express();
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/<name-of-app>'));
+app.use(express.static(__dirname + '/dist/faculdade'));
 
 app.get('*', function (req, res) {
-  const index = path.join(__dirname, 'dist/<name-of-app>', 'index.html');
+  const index = path.join(__dirname, 'dist/faculdade', 'index.html');
   res.sendFile(index);
 });
 
