@@ -9,10 +9,6 @@ import { UsersService } from '../users.service';
 })
 export class HomeComponent implements OnInit {
   public users: Object;
-  public developers = [];
-  public supports = [];
-  public repairmen = [];
-  public editors = [];
 
   constructor(
     private usersService: UsersService
@@ -31,14 +27,5 @@ export class HomeComponent implements OnInit {
       loopBottom: true,
       scrollOverflow: true
     });
-
-    this.developers = this.getServicesByName('Desenvolvedor');
-    this.supports = this.getServicesByName('Suporte');
-    this.repairmen = this.getServicesByName('Conserto');
-    this.editors = this.getServicesByName('Edicao');
-  }
-
-  private getServicesByName(serviceName) {
-    return this.usersService.getServicesByName(serviceName);
   }
 }
