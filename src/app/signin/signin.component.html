@@ -6,26 +6,41 @@
     <div class='row justify-content-md-center'>
       <div class='col-md-4 mt-10'>
         <h1> Criar conta! </h1>
-        <form>
+        <form [formGroup]="signinForm" (ngSubmit)="onSubmit(signinForm.value)">
           <div class="form-group">
             <label for="username">Usuário</label>
-            <input type="text" class="form-control" id="username" required autocomplete="off">
+            <input type="text" class="form-control" id="username" formControlName="username"
+                  required autocomplete="off" minlength="4" maxlength="12" placeholder="Min: 4 caracteres">
           </div>
           <div class="form-group">
             <label for="e-mail">E-mail</label>
-            <input type="email" class="form-control" id="e-mail" required>
+            <input type="email" class="form-control" id="e-mail" formControlName="email"
+                  required>
           </div>
           <div class="form-group">
             <label for="password">Senha:</label>
-            <input type="password" class="form-control" id="password" required>
+            <input type="password" class="form-control" id="password" formControlName="password"
+                  required minlength="4" maxlength="12" placeholder="Min: 4 caracteres">
           </div>
           <div class="form-group">
             <label for="confirmation">Confirme sua senha:</label>
-            <input type="password" class="form-control" id="confirmation" required>
+            <input type="password" class="form-control" id="confirmation" formControlName="confirmation"
+                  required minlength="4" maxlength="12" placeholder="Min: 4 caracteres">
           </div>
-            <button type="submit" class="btn btn-light btn-block float-right;" style="color: #fc6c7c">Registrar!</button>
+            <button type="submit" class="btn btn-light btn-block float-right;" style="color: #fc6c7c"
+                    [disabled]="!signinForm.valid || signinForm.value.password != signinForm.value.confirmation">
+              Registrar!
+            </button>
         </form>
+
+        <!-- Alertas -->
+        <div class='alerts mt-3'>
+          <div class="alert alert-danger" *ngIf="signinForm.value.password != signinForm.value.confirmation">
+            As <strong>senhas</strong> precisam ser iguais!
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 </div>
