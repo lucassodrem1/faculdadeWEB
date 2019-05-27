@@ -24,10 +24,11 @@
     </ul>
     <ul class="navbar-nav mr-right">
       <li class="nav-item">
-        <a class="nav-link" href="/login">Login</a>
+        <a class="nav-link" href="/login" *ngIf='!isLogged()'>Login</a>
+        <a class="nav-link" href="/login" *ngIf='isLogged()'>Perfil</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/signin">Registrar</a>
+        <a class="nav-link" href="/signin" *ngIf='!isLogged()'>Registrar</a>
       </li>
     </ul>
   </div>
