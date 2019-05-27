@@ -25,16 +25,15 @@ export class SigninComponent implements OnInit {
 
 	public onSubmit(userData) {
 		this.usersService.getUserByUsername(userData.username)
-		.subscribe(user => {
-			if(typeof user.docs[0] !== 'undefined') {
-				alert('Este usuário já existe!');
-				return;
-			} else {
-				delete userData.confirmation;
+		.subscribe(exists => {
+			if (!exists) {
 				this.addUser(userData);
 				alert('Conta criada com sucesso!');
 				this.router.navigate(['/login']);
+				return;
 			}
+
+			alert('Este usuário já existe!');
 		});
 	}
 
