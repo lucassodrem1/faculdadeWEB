@@ -5,6 +5,7 @@ import { environment } from "src/environments/environment";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
 import { PerfilServiceComponent } from './perfil-service/perfil-service.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { PerfilServiceComponent } from './perfil-service/perfil-service.componen
     NavbarComponent,
     LoginComponent,
     SigninComponent,
-    PerfilServiceComponent
+    PerfilServiceComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { PerfilServiceComponent } from './perfil-service/perfil-service.componen
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
