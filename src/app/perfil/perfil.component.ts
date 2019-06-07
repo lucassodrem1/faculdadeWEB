@@ -9,7 +9,7 @@ import { UsersService } from '../users.service';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-	userInfo = [];
+	public userInfo = [];
 
 	offerService = new FormGroup({
 		title: new FormControl(''),
@@ -32,7 +32,7 @@ export class PerfilComponent implements OnInit {
 		showActiveTooltip: true,
 		loopTop: true,
 		loopBottom: true,
-		scrollOverflow: true
+		scrollOverflow: true,
     });
 
   		let userId = parseInt(localStorage.getItem('userInfo'));
@@ -48,7 +48,7 @@ export class PerfilComponent implements OnInit {
 
   public addOfferService(serviceData) { 
   	this.usersService.addOfferService(serviceData);
+  	this.offerService.reset();
+  	$('.show-alert').show();
   }
-
-
 }

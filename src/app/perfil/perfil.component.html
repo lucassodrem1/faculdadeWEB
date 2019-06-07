@@ -1,4 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
+<script src='assets/fullpage/scrolloverflow.min.js'></script>
+<script src='assets/fullpage/fullpage.js'></script>
+
 <div class='header'>
     <app-navbar></app-navbar>
 </div>
@@ -39,6 +42,13 @@
             					<button type='submit' class='btn btn-info btn-block my-4' [disabled]='!offerService.valid'>
             						Cadastrar serviço 
             					</button>
+
+            					<!-- Alers -->
+            					<div class='show-alert alert alert-success'>
+            						Serviço registrado com <strong class='text-success'>sucesso!</strong>
+            						<fa class='ml-1 text-success' name='check'></fa>
+            						<button class='close ml-auto' data-dismiss='alert'>&times;</button>
+            					</div>
             				</div>
             			</div>
 	            	</form>
@@ -50,56 +60,47 @@
     <div class="section">
         <div class='container'>
             <div class='row justify-content-md-center'>
-                <div class='col-md-7'>
+                <div class='col-md-7 mt-5'>
                     <div class='card'>
                     	<h5 class='card-header bg-info text-center text-white py-4'> 
                     		Serviços contratados
                     	</h5>
 
                     	<div class='card-body px-lg-5'>
-                    		<table class='table table-striped table-responsive-sm'>
-                    			<thead>
-                    				<tr>
-                    					<th> Contratado </th>
-                    					<th> Título </th>
-                    					<th> Preço/h </th>
-                    					<th></th>
-                    					<th></th>
-                    				</tr>
-                    			</thead>
-                    			<tbody>
-                    				<tr>
-                    					<td class='align-middle'> Teste </td>
-                    					<td class='align-middle'> Teste </td>
-                    					<td class='align-middle'> R$0,00 </td>
-                    					<td class='align-middle'> 
-                    						<button class='btn btn-info' title='Detalhes'> 
-                    							<fa name="eye"></fa> 
-                    						</button>
-                    					</td>
-                    					<td class='align-middle'> 
-                    						<button class='btn btn-danger' title='Excluir'> 
-                    							<fa name='eraser'></fa>
-                    						</button>
-                    					</td>
-                    				</tr>
-                    				<tr>
-                    					<td class='align-middle'> Teste </td>
-                    					<td class='align-middle'> Teste </td>
-                    					<td class='align-middle'> R$0,00 </td>
-                    					<td class='align-middle'> 
-                    						<button class='btn btn-info' title='Detalhes'> 
-                    							<fa name="eye"></fa> 
-                    						</button>
-                    					</td>
-                    					<td class='align-middle'> 
-                    						<button class='btn btn-danger' title='Excluir'> 
-                    							<fa name='eraser'></fa>
-                    						</button>
-                    					</td>
-                    				</tr>
-                    			</tbody>
-                    		</table>
+                    		<div class='table-responsive-sm'>
+	                    		<table class='table table-striped'>
+	                    			<thead>
+	                    				<tr>
+	                    					<th> Contratado </th>
+	                    					<th> Título </th>
+	                    					<th> Preço/h </th>
+	                    					<th></th>
+	                    				</tr>
+	                    			</thead>
+	                    			<tbody>
+	                    				<tr>
+	                    					<td class='align-middle'> Teste </td>
+	                    					<td class='align-middle'> Teste </td>
+	                    					<td class='align-middle'> R$0,00 </td>
+	                    					<td class='align-middle'> 
+	                    						<button class='btn btn-info' title='Detalhes'> 
+	                    							<fa name="eye"></fa> 
+	                    						</button>
+	                    					</td>
+	                    				</tr>
+	                    				<tr>
+	                    					<td class='align-middle'> Teste </td>
+	                    					<td class='align-middle'> Teste </td>
+	                    					<td class='align-middle'> R$0,00 </td>
+	                    					<td class='align-middle'> 
+	                    						<button class='btn btn-info' title='Detalhes'> 
+	                    							<fa name="eye"></fa> 
+	                    						</button>
+	                    					</td>
+	                    				</tr>
+	                    			</tbody>
+	                    		</table>
+	                    	</div>
                     	</div>
                     </div>
                 </div>
@@ -111,56 +112,37 @@
     <div class="section">
         <div class='container'>
             <div class='row justify-content-md-center mt-5'>
-               <div class='col-md-7'>
+               <div class='col-md-7 mt-5'>
                     <div class='card'>
                     	<h5 class='card-header bg-info text-center text-white py-4'> 
                     		Serviços oferecidos
                     	</h5>
 
                     	<div class='card-body px-lg-5'>
-                    		<table class='table table-striped table-responsive-sm'>
-                    			<thead>
-                    				<tr>
-                    					<th> Cliente </th>
-                    					<th> Título </th>
-                    					<th> Preço/h </th>
-                    					<th></th>
-                    					<th></th>
-                    				</tr>
-                    			</thead>
-                    			<tbody>
-                    				<tr>
-                    					<td class='align-middle'> Teste </td>
-                    					<td class='align-middle'> Teste </td>
-                    					<td class='align-middle'> R$0,00 </td>
-                    					<td class='align-middle'> 
-                    						<button class='btn btn-info' title='Detalhes'> 
-                    							<fa name="eye"></fa> 
-                    						</button>
-                    					</td>
-                    					<td class='align-middle'> 
-                    						<button class='btn btn-danger' title='Excluir'> 
-                    							<fa name='eraser'></fa>
-                    						</button>
-                    					</td>
-                    				</tr>
-                    				<tr>
-                    					<td class='align-middle'> Teste </td>
-                    					<td class='align-middle'> Teste </td>
-                    					<td class='align-middle'> R$0,00 </td>
-                    					<td class='align-middle'> 
-                    						<button class='btn btn-info' title='Detalhes'> 
-                    							<fa name="eye"></fa> 
-                    						</button>
-                    					</td>
-                    					<td class='align-middle'> 
-                    						<button class='btn btn-danger' title='Excluir'> 
-                    							<fa name='eraser'></fa>
-                    						</button>
-                    					</td>
-                    				</tr>
-                    			</tbody>
-                    		</table>
+                    		<div class='table-responsive-sm'>
+	                    		<table class='table table-striped'>
+	                    			<thead>
+	                    				<tr>
+	                    					<th> # </th>
+	                    					<th>Título</th>
+	                    					<th>Preço/h</th>
+	                    					<th></th>
+	                    				</tr>
+	                    			</thead>
+	                    			<tbody>
+	                    				<tr *ngFor='let service of userInfo.offerServices; let i = index'>
+	                    					<td class='align-middle'> {{i + 1}} </td>
+	                    					<td class='align-middle'> {{service.title | limitTo: 20}} </td>
+	                    					<td class='align-middle'> R${{service.price}} </td>
+	                    					<td class='align-middle'> 
+	                    						<button class='btn btn-info' title='Detalhes'> 
+	                    							<fa name="eye"></fa> 
+	                    						</button>
+	                    					</td>
+	                    				</tr>
+	                    			</tbody>
+	                    		</table>
+	                    	</div>
                     	</div>
                     </div>
                 </div>

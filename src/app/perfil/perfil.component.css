@@ -24,3 +24,7 @@ button[type='submit']:hover {
 	box-shadow: 2px 3px 8px 0.2rem #888888;
 }
 
+.alert-success {
+	display: none;
+}
+
