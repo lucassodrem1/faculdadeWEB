@@ -16,6 +16,8 @@ import { SigninComponent } from './signin/signin.component';
 import { PerfilServiceComponent } from './perfil-service/perfil-service.component';
 import { PerfilComponent } from './perfil/perfil.component';
 
+import { LimitToPipe } from './pipes/limitTo.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,8 @@ import { PerfilComponent } from './perfil/perfil.component';
     LoginComponent,
     SigninComponent,
     PerfilServiceComponent,
-    PerfilComponent
+    PerfilComponent,
+    LimitToPipe
   ],
   imports: [
     BrowserModule,
