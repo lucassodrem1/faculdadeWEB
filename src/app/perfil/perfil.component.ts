@@ -9,7 +9,13 @@ import { UsersService } from '../users.service';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-	public userInfo = [];
+	public userInfo = {
+		id: null,
+		username: null,
+		password: null,
+		offerServices: [],
+		contractedServices: []
+	};
 
 	offerService = new FormGroup({
 		title: new FormControl(''),
