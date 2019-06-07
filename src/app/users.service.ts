@@ -72,7 +72,6 @@ export class UsersService {
 		delete userData.confirmation;
 		userData.services = [];
 		userData.id = Math.random().toString(16).substr(2, 16);
-		//todo verificar se id já existe.
 
 		return new Promise<any>((resolve, reject) => {
 			this.firestore.collection('users')
