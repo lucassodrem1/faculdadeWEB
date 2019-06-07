@@ -1,0 +1,171 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<div class='header'>
+    <app-navbar></app-navbar>
+</div>
+<div id="fullpage">
+    <div class="section">
+        <div class='container'>
+            <div class='row justify-content-md-center mt-3'>
+            	<div class='col-md-7'>
+	            	<form [formGroup]='offerService'>
+            			<div class='card'>
+            				<h5 class='card-header bg-info text-center text-white py-4'>
+            					Ofereça seus serviços!
+            				</h5>
+            				<div class='card-body px-lg-5'>
+            					<input type='text' class='form-control mb-4' placeholder="Título do Serviço"
+            						maxlength="50" formControlName='title' required="true">
+
+            					<select class='custom-select mb-4' formControlName='category' required="true">
+            						<option value='' disabled selected> Categoria do serviço </option>
+            						<option value='developer'> Desenvolvimento </option>
+            						<option value='support'> Suporte </option>
+            						<option value='repairman'> Conserto </option>
+            						<option value='editor'> Edição </option>
+            					</select>
+
+            					<div class='input-group mb-4'>
+            						<div class='input-group-append'>
+            							<span class='input-group-text'>R$</span>
+            							<span class='input-group-text'>por hora</span>
+            						</div>
+            						<input type='number' class='form-control'
+            							placeholder="Preço do serviço" formControlName='price' required="true">
+            					</div>
+
+            					<textarea class='form-control mb-4' placeholder="Descrição do serviço..."
+            						maxlength="350" rows='6' required="true" formControlName='desc' required="true"></textarea>
+
+            					<button type='submit' class='btn btn-info btn-block my-4' [disabled]='!offerService.valid'>
+            						Cadastrar serviço 
+            					</button>
+            				</div>
+            			</div>
+	            	</form>
+            	</div>
+            </div>
+        </div>
+    </div>
+    <!-- Desenvolvimento -->
+    <div class="section">
+        <div class='container'>
+            <div class='row justify-content-md-center'>
+                <div class='col-md-7'>
+                    <div class='card'>
+                    	<h5 class='card-header bg-info text-center text-white py-4'> 
+                    		Serviços contratados
+                    	</h5>
+
+                    	<div class='card-body px-lg-5'>
+                    		<table class='table table-striped table-responsive-sm'>
+                    			<thead>
+                    				<tr>
+                    					<th> Contratado </th>
+                    					<th> Título </th>
+                    					<th> Preço/h </th>
+                    					<th></th>
+                    					<th></th>
+                    				</tr>
+                    			</thead>
+                    			<tbody>
+                    				<tr>
+                    					<td class='align-middle'> Teste </td>
+                    					<td class='align-middle'> Teste </td>
+                    					<td class='align-middle'> R$0,00 </td>
+                    					<td class='align-middle'> 
+                    						<button class='btn btn-info' title='Detalhes'> 
+                    							<fa name="eye"></fa> 
+                    						</button>
+                    					</td>
+                    					<td class='align-middle'> 
+                    						<button class='btn btn-danger' title='Excluir'> 
+                    							<fa name='eraser'></fa>
+                    						</button>
+                    					</td>
+                    				</tr>
+                    				<tr>
+                    					<td class='align-middle'> Teste </td>
+                    					<td class='align-middle'> Teste </td>
+                    					<td class='align-middle'> R$0,00 </td>
+                    					<td class='align-middle'> 
+                    						<button class='btn btn-info' title='Detalhes'> 
+                    							<fa name="eye"></fa> 
+                    						</button>
+                    					</td>
+                    					<td class='align-middle'> 
+                    						<button class='btn btn-danger' title='Excluir'> 
+                    							<fa name='eraser'></fa>
+                    						</button>
+                    					</td>
+                    				</tr>
+                    			</tbody>
+                    		</table>
+                    	</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+
+    <!-- Suporte -->
+    <div class="section">
+        <div class='container'>
+            <div class='row justify-content-md-center mt-5'>
+               <div class='col-md-7'>
+                    <div class='card'>
+                    	<h5 class='card-header bg-info text-center text-white py-4'> 
+                    		Serviços oferecidos
+                    	</h5>
+
+                    	<div class='card-body px-lg-5'>
+                    		<table class='table table-striped table-responsive-sm'>
+                    			<thead>
+                    				<tr>
+                    					<th> Cliente </th>
+                    					<th> Título </th>
+                    					<th> Preço/h </th>
+                    					<th></th>
+                    					<th></th>
+                    				</tr>
+                    			</thead>
+                    			<tbody>
+                    				<tr>
+                    					<td class='align-middle'> Teste </td>
+                    					<td class='align-middle'> Teste </td>
+                    					<td class='align-middle'> R$0,00 </td>
+                    					<td class='align-middle'> 
+                    						<button class='btn btn-info' title='Detalhes'> 
+                    							<fa name="eye"></fa> 
+                    						</button>
+                    					</td>
+                    					<td class='align-middle'> 
+                    						<button class='btn btn-danger' title='Excluir'> 
+                    							<fa name='eraser'></fa>
+                    						</button>
+                    					</td>
+                    				</tr>
+                    				<tr>
+                    					<td class='align-middle'> Teste </td>
+                    					<td class='align-middle'> Teste </td>
+                    					<td class='align-middle'> R$0,00 </td>
+                    					<td class='align-middle'> 
+                    						<button class='btn btn-info' title='Detalhes'> 
+                    							<fa name="eye"></fa> 
+                    						</button>
+                    					</td>
+                    					<td class='align-middle'> 
+                    						<button class='btn btn-danger' title='Excluir'> 
+                    							<fa name='eraser'></fa>
+                    						</button>
+                    					</td>
+                    				</tr>
+                    			</tbody>
+                    		</table>
+                    	</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+</html>
