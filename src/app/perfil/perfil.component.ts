@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as fullpage from '../../assets/fullpage/fullpage.js';
 import { FormGroup, FormControl } from '@angular/forms';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-perfil',
@@ -8,6 +9,8 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
+	userInfo = [];
+
 	offerService = new FormGroup({
 		title: new FormControl(''),
 		desc: new FormControl(''),
@@ -15,7 +18,9 @@ export class PerfilComponent implements OnInit {
 		price: new FormControl('')
 	});
 
-	constructor() { }
+	constructor(
+		private usersService: UsersService
+	) { }
 
 	ngOnInit() {
  	  new fullpage('#fullpage', {
@@ -29,6 +34,21 @@ export class PerfilComponent implements OnInit {
 		loopBottom: true,
 		scrollOverflow: true
     });
+
+  		let userId = parseInt(localStorage.getItem('userInfo'));
+ 		this.getUserById(userId);
   }
+
+  public getUserById(userId) {
+  	this.usersService.getUserById(userId)
+  	.subscribe(user => {
+  		this.userInfo = user;
+  	});
+  }
+
+  public addOfferService(serviceData) { 
+  	this.usersService.addOfferService(serviceData);
+  }
+
 
 }

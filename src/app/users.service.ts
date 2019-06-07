@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,16 @@ export class UsersService {
 		private firestore: AngularFirestore,
 		private router: Router
 	) { }
+
+	public getUserById(userId): Observable<any> {
+		return this.firestore.collection('users', ref => ref.where('id', '==', 1))
+			.snapshotChanges()
+			.pipe(
+				map(user => user[0].payload.doc.data()),
+				catchError(this.handleError())
+			);
+
+	}
 
 	public getUserByUsername(username): Observable<any> {
 		return this.firestore.collection('users', ref => ref.where('username', '==', username))
@@ -70,7 +81,8 @@ export class UsersService {
 	// Adicionar usuário no banco de dados.
 	public addUser(userData): Promise<any> {
 		delete userData.confirmation;
-		userData.services = [];
+		userData.offerServices = [];
+		userData.contractServices = [];
 		userData.id = Math.random().toString(16).substr(2, 16);
 
 		return new Promise<any>((resolve, reject) => {
@@ -80,6 +92,36 @@ export class UsersService {
 		});
 	}
 
+	//----------Serviços de usuário --------------//
+
+	/**
+	 *	Adiciona um novo serviço ao array offerServices.
+	 *
+	 * 	Gera um id aleatório para o serviço.
+	 * 	Encontra o usuário pelo id e com isso pega a referência do doc
+	 *	em que ele está.
+	 *	No final, adiciona o novo objeto ao array.
+	 */
+	public addOfferService(serviceData) {
+		let userId = parseInt(localStorage.getItem('userInfo'));
+		serviceData.serviceId = Math.random().toString(16).substr(2, 16);
+
+		this.firestore.collection('users', ref => ref.where('id', '==', userId))
+		.snapshotChanges()
+		.pipe(
+			catchError(this.handleError())
+		)
+		.subscribe(user => {
+			this.firestore
+			.collection('users')
+			.doc(user[0].payload.doc.id)
+			.update({
+				offerServices: firebase.firestore.FieldValue.arrayUnion(serviceData)
+			});
+		});
+	}
+
+	// Método para tratamento de erros.
 	private handleError(result?) {
 		return (error: any) => {
 			return of(result);
