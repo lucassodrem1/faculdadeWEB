@@ -18,7 +18,12 @@ export class PerfilServiceComponent implements OnInit {
 		offerServices: [],
 		contractedServices: []
 	};
-	public serviceInfo = {};
+	public serviceInfo = {
+		title: null,
+		desc: null,
+		price: null,
+		hearts: null
+	};
 
 	constructor(
 		private route: ActivatedRoute,
