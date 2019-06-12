@@ -25,9 +25,10 @@
     <ul class="navbar-nav mr-right">
       <li class="nav-item">
         <a class="nav-link" href="/login" *ngIf='!isLogged()'>Login</a>
-        <a class="nav-link" href="/perfil" *ngIf='isLogged()'>Perfil</a>
+        <a class='nav-link text-white' *ngIf='isLogged()'> Olá, {{userInfo.username}} </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="/perfil" *ngIf='isLogged()'>Perfil</a>
         <a class="nav-link" href="/signin" *ngIf='!isLogged()'>Registrar</a>
       </li>
     </ul>
