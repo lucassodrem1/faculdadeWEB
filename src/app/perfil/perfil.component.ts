@@ -12,6 +12,7 @@ export class PerfilComponent implements OnInit {
 	public userInfo = {
 		id: null,
 		username: null,
+		email: null,
 		password: null,
 		offerServices: [],
 		contractedServices: []
@@ -29,19 +30,19 @@ export class PerfilComponent implements OnInit {
 	) { }
 
 	ngOnInit() {
- 	  new fullpage('#fullpage', {
-   		lockAnchors: false,
-		sectionsColor : ['#1bbc9b', '#0798ec', '#ff5f45', '#7e8f7c', '#fec401'],
-		menu: '#menu',
-		lazyLoad: true,
-		navigation: true,
-		showActiveTooltip: true,
-		loopTop: true,
-		loopBottom: true,
-		scrollOverflow: true,
-    });
+		new fullpage('#fullpage', {
+			lockAnchors: false,
+			sectionsColor : ['#1bbc9b', '#0798ec', '#ff5f45', '#7e8f7c', '#fec401'],
+			menu: '#menu',
+			lazyLoad: true,
+			navigation: true,
+			showActiveTooltip: true,
+			loopTop: true,
+			loopBottom: true,
+			scrollOverflow: true,
+		});
 
-  		let userId = parseInt(localStorage.getItem('userInfo'));
+  		let userId = localStorage.getItem('userInfo');
  		this.getUserById(userId);
   }
 
