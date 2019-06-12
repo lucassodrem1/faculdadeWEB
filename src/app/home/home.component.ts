@@ -8,7 +8,11 @@ import { UsersService } from '../users.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public users: Object;
+  public allUsers = [];
+  public developerServices = [];
+  public supportServices = [];
+  public repairmanServices = [];
+  public editorServices = [];
 
   constructor(
     private usersService: UsersService
@@ -27,5 +31,25 @@ export class HomeComponent implements OnInit {
       loopBottom: true,
       scrollOverflow: true
     });
+
+    this.getAllUsers();
+  }
+
+  public getAllUsers() {
+    this.usersService.getAllUsers()
+    .subscribe(users => {
+      for(let user in users) {
+        this.allUsers.push(users[user]);
+      }
+
+      this.developerServices = this.getAllOfferServiceByCategory(this.allUsers, 'developer');
+      this.supportServices = this.getAllOfferServiceByCategory(this.allUsers, 'support');
+      this.repairmanServices = this.getAllOfferServiceByCategory(this.allUsers, 'repairman');
+      this.editorServices = this.getAllOfferServiceByCategory(this.allUsers, 'editor');
+    });
+  }
+
+  public getAllOfferServiceByCategory(users, serviceCategory) {
+    return this.usersService.getAllOfferServiceByCategory(users, serviceCategory);
   }
 }

@@ -32,14 +32,14 @@
                 </div>
             </div>
             <div class='row justify-content-md-center'>
-                <div class='col-md-4 mt-2' *ngFor=''>
+                <div class='col-md-6 mt-2' *ngFor='let developerService of developerServices | slice:0:4'>
                     <div class='card text-center'>
                         <div class='card-header'>
-                            {{developer.username}}
+                            {{developerService.title}}
                         </div>
                         <div class='card-body'>
-                            <p class='card-text'>
-                                {{developer.desc}}
+                            <p class='card-text text-left'>
+                                {{developerService.desc}}
                             </p>
                             <a href='/perfilService'>
                                 <button class='btn btn-primary'> 
@@ -47,8 +47,13 @@
                                 </button>
                             </a>
                         </div>
-                        <div class='card-footer text-muted'>
-                            Recomendações: {{developer.votes}}
+                        <div class='card-footer bg-danger text-white'>
+                            <div class='float-left'>
+                                Preço/h: R$ {{developerService.price}}
+                            </div>
+                            <div class='float-right'>
+                                {{developerService.hearts}} <i class="fas fa-heart fa-1x ml-1"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -71,19 +76,24 @@
                 </div>
             </div>
             <div class='row justify-content-md-center'>
-                <div class='col-md-4 mt-2' *ngFor=''>
+                <div class='col-md-4 mt-2' *ngFor='let supportService of supportServices | slice:0:4'>
                     <div class='card text-center'>
                         <div class='card-header'>
-                            {{support.username}}
+                            {{supportService.title}}
                         </div>
                         <div class='card-body'>
-                            <p class='card-text'>
-                                {{support.desc}}
+                            <p class='card-text text-left'>
+                                {{supportService.desc}}
                             </p>
                             <button class='btn btn-primary'> Conferir! </button>
                         </div>
-                        <div class='card-footer text-muted'>
-                            Recomendações: {{support.votes}}
+                        <div class='card-footer bg-danger text-white'>
+                            <div class='float-left'>
+                                Preço/h: R$ {{supportService.price}}
+                            </div>
+                            <div class='float-right'>
+                                {{supportService.hearts}} <i class="fas fa-heart fa-1x ml-1"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -106,19 +116,28 @@
                 </div>
             </div>
             <div class='row justify-content-md-center'>
-                <div class='col-md-4 mt-2' *ngFor=''>
+                <div class='col-md-4 mt-2' *ngFor='let repairmanService of repairmanServices | slice:0:4'>
                     <div class='card text-center'>
                         <div class='card-header'>
-                            {{repairman.username}}
+                            {{repairmanService.title}}
                         </div>
                         <div class='card-body'>
-                            <p class='card-text'>
-                                {{repairman.desc}}
+                            <p class='card-text text-left'>
+                                {{repairmanService.desc}}
                             </p>
-                            <button class='btn btn-primary'> Conferir! </button>
+                            <a href='/perfilService'>
+                                <button class='btn btn-primary'> 
+                                    Conferir! 
+                                </button>
+                            </a>
                         </div>
-                        <div class='card-footer text-muted'>
-                            Recomendações: {{repairman.votes}}
+                        <div class='card-footer bg-danger text-white'>
+                            <div class='float-left'>
+                                Preço/h: R$ {{repairmanService.price}}
+                            </div>
+                            <div class='float-right'>
+                                {{repairmanService.hearts}} <i class="fas fa-heart fa-1x ml-1"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -141,19 +160,28 @@
                 </div>
             </div>
             <div class='row justify-content-md-center'>
-                <div class='col-md-4 mt-2' *ngFor=''>
+                <div class='col-md-4 mt-2' *ngFor='let editorService of editorServices | slice:0:4'>
                     <div class='card text-center'>
                         <div class='card-header'>
-                            {{editor.name}}
+                            {{editorService.title}}
                         </div>
                         <div class='card-body'>
-                            <p class='card-text'>
-                                {{editor.desc}}
+                            <p class='card-text text-left'>
+                                {{editorService.desc}}
                             </p>
-                            <button class='btn btn-primary'> Conferir! </button>
+                            <a href='/perfilService'>
+                                <button class='btn btn-primary'> 
+                                    Conferir! 
+                                </button>
+                            </a>
                         </div>
-                        <div class='card-footer text-muted'>
-                            Recomendações: {{editor.votes}}
+                        <div class='card-footer bg-danger text-white'>
+                            <div class='float-left'>
+                                Preço/h: R$ {{editorService.price}}
+                            </div>
+                            <div class='float-right'>
+                                {{editorService.hearts}} <i class="fas fa-heart fa-1x ml-1"></i>
+                            </div>
                         </div>
                     </div>
                 </div>

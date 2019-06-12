@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 
@@ -15,8 +15,17 @@ export class UsersService {
 		private router: Router
 	) { }
 
+	public getAllUsers() {
+		return this.firestore.collection('users')
+			.snapshotChanges()
+			.pipe(
+				map(users => users),
+				catchError(this.handleError())
+			);
+	}
+
 	public getUserById(userId): Observable<any> {
-		return this.firestore.collection('users', ref => ref.where('id', '==', 1))
+		return this.firestore.collection('users', ref => ref.where('id', '==', userId))
 			.snapshotChanges()
 			.pipe(
 				map(user => user[0].payload.doc.data()),
@@ -92,19 +101,21 @@ export class UsersService {
 		});
 	}
 
-	//----------Serviços de usuário --------------//
+	//----------Serviços do usuário --------------//
 
 	/**
 	 *	Adiciona um novo serviço ao array offerServices.
 	 *
 	 * 	Gera um id aleatório para o serviço.
+	 *  Seta a quantidade de hearts em 0.
 	 * 	Encontra o usuário pelo id e com isso pega a referência do doc
 	 *	em que ele está.
 	 *	No final, adiciona o novo objeto ao array.
 	 */
 	public addOfferService(serviceData) {
-		let userId = parseInt(localStorage.getItem('userInfo'));
+		let userId = localStorage.getItem('userInfo');
 		serviceData.serviceId = Math.random().toString(16).substr(2, 16);
+		serviceData.hearts = 0;
 
 		this.firestore.collection('users', ref => ref.where('id', '==', userId))
 		.snapshotChanges()
@@ -119,6 +130,33 @@ export class UsersService {
 				offerServices: firebase.firestore.FieldValue.arrayUnion(serviceData)
 			});
 		});
+	}
+
+	//Pega todos os offerServices de todos os usuarios filtrado pela categoria.
+	public getAllOfferServiceByCategory(users, serviceCategory) {
+		let allOfferServices = [];
+		for (let user in users) {
+			for(let offerService in users[user].payload.doc.data().offerServices) {
+				let service = users[user].payload.doc.data().offerServices[offerService];
+				// Só será pego os serviços com a categoria igual ao nome passado no paramatro.
+				if(service.category == serviceCategory) {
+	        		allOfferServices.push(service);
+	        	}
+	        }
+	    }
+
+	    let ordenedOfferServices = this.orderOfferServicesByBenefit(allOfferServices);
+
+	    return ordenedOfferServices;
+	}
+
+	// Ordena o array de serviços por número de hearts.
+	private orderOfferServicesByBenefit(offerServices) {
+		offerServices.sort((a, b) => {
+			return (a.hearts / a.price) < (b.hearts / b.price) ? 1 : -1;
+		})
+
+		return offerServices;
 	}
 
 	// Método para tratamento de erros.
