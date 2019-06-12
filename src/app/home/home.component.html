@@ -41,11 +41,10 @@
                             <p class='card-text text-left'>
                                 {{developerService.desc}}
                             </p>
-                            <a href='/perfilService'>
-                                <button class='btn btn-primary'> 
-                                    Conferir! 
-                                </button>
-                            </a>
+                            <button class='btn btn-primary' 
+                                routerLink="/service/{{developerService.ownerId}}/{{developerService.serviceId}}"> 
+                                Conferir! 
+                            </button>
                         </div>
                         <div class='card-footer bg-danger text-white'>
                             <div class='float-left'>

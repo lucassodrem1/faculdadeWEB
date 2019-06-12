@@ -138,6 +138,7 @@ export class UsersService {
 		for (let user in users) {
 			for(let offerService in users[user].payload.doc.data().offerServices) {
 				let service = users[user].payload.doc.data().offerServices[offerService];
+				service.ownerId = users[user].payload.doc.data().id;
 				// Só será pego os serviços com a categoria igual ao nome passado no paramatro.
 				if(service.category == serviceCategory) {
 	        		allOfferServices.push(service);
@@ -150,13 +151,19 @@ export class UsersService {
 	    return ordenedOfferServices;
 	}
 
-	// Ordena o array de serviços por número de hearts.
+	// Ordena o array de serviços por custo beneficio.
 	private orderOfferServicesByBenefit(offerServices) {
 		offerServices.sort((a, b) => {
 			return (a.hearts / a.price) < (b.hearts / b.price) ? 1 : -1;
 		})
 
 		return offerServices;
+	}
+
+	public getServiceById(services, serviceId) {
+		return services.find(service => {
+			return service.serviceId = serviceId;
+		});
 	}
 
 	// Método para tratamento de erros.

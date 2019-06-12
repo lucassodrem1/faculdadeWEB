@@ -3,16 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
-import { PerfilServiceComponent } from './perfil-service/perfil-service.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { PerfilServiceComponent } from './perfil-service/perfil-service.component';
 
 const routes: Routes = [
 	{path: '', component: HomeComponent},
 	{path: 'login', component: LoginComponent},
 	{path: '', redirectTo:'/login', pathMatch: 'full'},
 	{path: 'signin', component: SigninComponent},
-	{path: 'perfilService', component: PerfilServiceComponent},
-	{path: 'perfil', component: PerfilComponent}
+	{path: 'perfil', component: PerfilComponent},
+	{path: 'service/:ownerId/:serviceId', component: PerfilServiceComponent}
 ];
 
 @NgModule({
