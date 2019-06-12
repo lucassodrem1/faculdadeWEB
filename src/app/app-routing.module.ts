@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { PerfilServiceComponent } from './perfil-service/perfil-service.component';
+import { MoreServiceComponent } from './more-service/more-service.component';
 
 const routes: Routes = [
 	{path: '', component: HomeComponent},
@@ -12,7 +13,9 @@ const routes: Routes = [
 	{path: '', redirectTo:'/login', pathMatch: 'full'},
 	{path: 'signin', component: SigninComponent},
 	{path: 'perfil', component: PerfilComponent},
-	{path: 'service/:ownerId/:serviceId', component: PerfilServiceComponent}
+	{path: 'service/:ownerId/:serviceId', component: PerfilServiceComponent},
+	{path: 'more-service', component: MoreServiceComponent},
+	{path: '', redirectTo:'/more-service', pathMatch: 'full'},
 ];
 
 @NgModule({

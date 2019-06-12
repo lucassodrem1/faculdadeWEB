@@ -16,6 +16,7 @@ import { PerfilServiceComponent } from './perfil-service/perfil-service.componen
 import { PerfilComponent } from './perfil/perfil.component';
 
 import { LimitToPipe } from './pipes/limitTo.pipe';
+import { MoreServiceComponent } from './more-service/more-service.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LimitToPipe } from './pipes/limitTo.pipe';
     SigninComponent,
     PerfilServiceComponent,
     PerfilComponent,
-    LimitToPipe
+    LimitToPipe,
+    MoreServiceComponent,
   ],
   imports: [
     BrowserModule,
