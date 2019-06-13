@@ -1,0 +1,11 @@
+.info-service-body {
+	background: #0798ec;
+	min-width: 100%;
+	min-height: 100%;
+	color: white;
+}
+
+.card {
+	border-color: #33b5e5;
+	box-shadow: 2px 6px 10px 0.2rem #888888;
+}

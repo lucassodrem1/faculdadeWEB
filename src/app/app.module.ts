@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
 import { PerfilServiceComponent } from './perfil-service/perfil-service.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { InfoServiceComponent } from './info-service/info-service.component';
 
 import { LimitToPipe } from './pipes/limitTo.pipe';
 
@@ -26,6 +27,7 @@ import { LimitToPipe } from './pipes/limitTo.pipe';
     SigninComponent,
     PerfilServiceComponent,
     PerfilComponent,
+    InfoServiceComponent,
     LimitToPipe
   ],
   imports: [
