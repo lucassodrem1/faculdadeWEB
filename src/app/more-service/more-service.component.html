@@ -1,89 +1,39 @@
-<section class="header">
-    <div>
-        <app-navbar></app-navbar>
-    </div>
-</section>
-<div id="fullpage">
-<section class="top">
-    <div class="container">
-        <div class="text-center">
-            <h1> DESENVOLVIMENTO </h1>
-            <p>Arraste para baixo e confira os melhores serviços de desenvolvimento do mercado</p>
-        </div>    
-    </div> 
-</section>  
-<!--seção serviços-->
-<section class="service">
-    <div class="container">
-        <div class="text-center">
-            <h1> DESTAQUES </h1>
-            <p>Confira abaixo os melhores serviços em destaque que separamos para você</p>
+<div class='header'>
+    <app-navbar></app-navbar>
+</div>
+<body>
+<div class='container'>
+    <div class='row justify-content-md-center'>
+        <div class='col-md-auto mt-10'>
+            <h1> Desenvolvimento </h1>
+            <hr class='custom-hr'>
         </div>
-    <div class="row">
-        <div class="col-md-4 mt-3">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">DEV Iago</h5>
-                    <hr>
-                    <p class="card-text">Trabalhou para as mais renomadas empresas do mercado. 100% dos
-                    clientes recomendam.</p>
-                    <a href="#" class="btn btn-primary">Confira!</a>
+    </div>
+    <div class='row justify-content-md-center'>
+        <div class='col-md-6 mt-2' *ngFor=''>
+            <div class='card text-center'>
+                <div class='card-header'>
+                    {{developerService.title}}
+                </div>
+                <div class='card-body'>
+                    <p class='card-text text-left'>
+                        {{developerService.desc}}
+                    </p>
+                    <button class='btn btn-primary' 
+                        routerLink="/service/{{developerService.ownerId}}/{{developerService.serviceId}}"> 
+                        Conferir! 
+                    </button>
+                </div>
+                <div class='card-footer bg-danger text-white'>
+                    <div class='float-left'>
+                        Preço/h: R$ {{developerService.price}}
+                    </div>
+                    <div class='float-right'>
+                        {{developerService.hearts}} <i class="fas fa-heart fa-1x ml-1"></i>
+                    </div>
                 </div>
             </div>
         </div>
-            <div class="col-md-4 mt-3">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">DEV Sodré</h5>
-                        <hr>
-                        <p class="card-text">Trabalhou para as mais renomadas empresas do mercado. 100% dos clientes recomendam.</p>
-                        <a href="#" class="btn btn-primary">Confira!</a>
-                        </div>
-                </div>
-            </div>
-                <div class="col-md-4 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">DEV Renê</h5>
-                            <hr>
-                            <p class="card-text">Trabalhou para as mais renomadas empresas do mercado. 100% dos clientes recomendam.</p>
-                            <a href="#" class="btn btn-primary">Confira!</a>
-                        </div>
-                    </div>
-                </div>
-        </div>
-            <div class="row">
-                <div class="col-md-4 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">DEV Guilherme</h5>
-                            <hr>
-                            <p class="card-text">Trabalhou para as mais renomadas empresas do mercado. 100% dos clientes recomendam.</p>
-                            <a href="#" class="btn btn-primary">Confira!</a>
-                        </div>
-                    </div>
-                </div>
-                    <div class="col-md-4 mt-3">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">DEV Jonathan</h5>
-                                <hr>
-                                <p class="card-text">Trabalhou para as mais renomadas empresas do mercado. 35% dos clientes recomendam.</p>
-                                <a href="#" class="btn btn-primary">Confira!</a>
-                            </div>
-                        </div>
-                    </div>
-                        <div class="col-md-4 mt-3">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">DEV Ribeiro</h5>
-                                    <hr>
-                                    <p class="card-text">Trabalhou para as mais renomadas empresas do mercado. 100% dos clientes recomendam.</p>
-                                    <a href="#" class="btn btn-primary">Confira!</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>        
-        </section>
     </div>
+</div>
+</body>
