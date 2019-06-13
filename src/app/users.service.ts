@@ -162,7 +162,7 @@ export class UsersService {
 
 	public getServiceById(services, serviceId) {
 		return services.find(service => {
-			return service.serviceId = serviceId;
+			return service.serviceId == serviceId;
 		});
 	}
 
