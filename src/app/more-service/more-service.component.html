@@ -10,26 +10,26 @@
         </div>
     </div>
     <div class='row justify-content-md-center'>
-        <div class='col-md-6 mt-2' *ngFor=''>
-            <div class='card text-center'>
+        <div class='col-md-6 mt-2' *ngFor='let service of services'>
+            <div class='card text-center h-100'>
                 <div class='card-header'>
-                    {{developerService.title}}
+                    {{service.title}}
                 </div>
                 <div class='card-body'>
                     <p class='card-text text-left'>
-                        {{developerService.desc}}
+                        {{service.desc}}
                     </p>
                     <button class='btn btn-primary' 
-                        routerLink="/service/{{developerService.ownerId}}/{{developerService.serviceId}}"> 
+                        routerLink="/service/{{service.ownerId}}/{{service.serviceId}}"> 
                         Conferir! 
                     </button>
                 </div>
                 <div class='card-footer bg-danger text-white'>
                     <div class='float-left'>
-                        Preço/h: R$ {{developerService.price}}
+                        Preço/h: R$ {{service.price}}
                     </div>
                     <div class='float-right'>
-                        {{developerService.hearts}} <i class="fas fa-heart fa-1x ml-1"></i>
+                        {{service.hearts}} <i class="fas fa-heart fa-1x ml-1"></i>
                     </div>
                 </div>
             </div>
