@@ -14,7 +14,7 @@ const routes: Routes = [
 	{path: 'signin', component: SigninComponent},
 	{path: 'perfil', component: PerfilComponent},
 	{path: 'service/:ownerId/:serviceId', component: PerfilServiceComponent},
-	{path: 'more-service', component: MoreServiceComponent}
+	{path: 'more-service/:serviceCategory', component: MoreServiceComponent}
 ];
 
 @NgModule({
