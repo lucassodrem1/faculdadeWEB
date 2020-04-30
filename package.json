@@ -31,7 +31,7 @@
     "firebase": "^6.1.1",
     "font-awesome": "^4.7.0",
     "fullpage": "^1.4.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "path": "^0.12.7",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
